@@ -15,18 +15,18 @@
 
 ---
 
-## <h2 id="introduction">🎯 Introduction : Pourquoi Clerk ?</h2>
+## <h2 id="introduction"> Introduction : Pourquoi Clerk ?</h2>
 
 ### Qu'est-ce que Clerk exactement ?
 
 **Clerk** est un **service d'authentification complet** qui gère :
-- 🔐 **Connexion/inscription** des utilisateurs
-- 👤 **Gestion des profils** utilisateurs
-- 🛡️ **Sécurité** (chiffrement, tokens, sessions)
-- 🎨 **Interface utilisateur** pré-construite
-- 📱 **Multi-facteurs** (SMS, email, authenticator)
-- 🏢 **Organisations** et équipes
-- 🔑 **Rôles et permissions**
+-  **Connexion/inscription** des utilisateurs
+-  **Gestion des profils** utilisateurs
+-  **Sécurité** (chiffrement, tokens, sessions)
+-  **Interface utilisateur** pré-construite
+-  **Multi-facteurs** (SMS, email, authenticator)
+-  **Organisations** et équipes
+-  **Rôles et permissions**
 
 ### Pourquoi pas faire son propre système d'auth ?
 
@@ -44,7 +44,7 @@ const loginUser = async (email: string, password: string) => {
   // - Et 100 autres choses...
 }
 
-// ✅ Approche Clerk (simple et sécurisée)
+//  Approche Clerk (simple et sécurisée)
 import { useUser } from '@clerk/nextjs';
 const { user, isSignedIn } = useUser(); // C'est tout ! 🎉
 ```
@@ -108,7 +108,7 @@ pages/
 └── api/
     └── users.ts     // API : /api/users
 
-// ✅ App Router (nouveau système - notre choix)
+//  App Router (nouveau système - notre choix)
 app/
 ├── page.tsx         // Route : /
 ├── about/
@@ -153,20 +153,20 @@ import type { Config } from "tailwindcss";
 
 export default {
   content: [
-    // 🔍 Tailwind scanne ces fichiers pour trouver les classes utilisées
+    //  Tailwind scanne ces fichiers pour trouver les classes utilisées
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",     // Pages Router (si utilisé)
     "./components/**/*.{js,ts,jsx,tsx,mdx}", // Composants
     "./app/**/*.{js,ts,jsx,tsx,mdx}",       // App Router (notre cas)
   ],
   theme: {
     extend: {
-      // 🎨 Ici on peut ajouter des couleurs/espacements personnalisés
+      //  Ici on peut ajouter des couleurs/espacements personnalisés
       colors: {
         'brand': '#ff6b6b',
       }
     },
   },
-  plugins: [], // 📦 Plugins Tailwind additionnels
+  plugins: [], //  Plugins Tailwind additionnels
 } satisfies Config;
 ```
 
@@ -228,17 +228,17 @@ npm install @clerk/nextjs
 ```env
 # .env.local
 
-# 🔑 Clé publique - Peut être exposée côté client
+#  Clé publique - Peut être exposée côté client
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_xxx
 # Format : pk_test_... (test) ou pk_live_... (production)
 # Utilisée pour identifier votre application auprès de Clerk
 
-# 🔐 Clé secrète - JAMAIS exposée côté client
+#  Clé secrète - JAMAIS exposée côté client
 CLERK_SECRET_KEY=sk_test_xxx
 # Format : sk_test_... (test) ou sk_live_... (production)
 # Utilisée pour les opérations sensibles côté serveur
 
-# 🔄 URLs de redirection (optionnel - Clerk a des valeurs par défaut)
+# URLs de redirection (optionnel - Clerk a des valeurs par défaut)
 NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
 NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
 NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/dashboard
@@ -414,7 +414,7 @@ import { auth } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
 
 export default async function DashboardPage() {
-  // 🔍 Récupération de l'authentification côté serveur
+  // Récupération de l'authentification côté serveur
   const { userId } = await auth();
   
   /* 
@@ -433,7 +433,7 @@ export default async function DashboardPage() {
     - Préparation pour les futures fonctionnalités
   */
 
-  // 🛡️ Vérification de l'authentification
+  //  Vérification de l'authentification
   if (!userId) {
     redirect('/sign-in');
     /* 
